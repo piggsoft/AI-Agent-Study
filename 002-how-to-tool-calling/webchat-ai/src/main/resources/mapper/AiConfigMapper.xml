@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.piggsoft.webchat.mapper.AiConfigMapper">
+    <select id="selectByConfigKey" resultType="com.piggsoft.webchat.entity.AiConfig">
+        SELECT id, config_key, config_value, description, updated_at
+        FROM ai_config
+        WHERE config_key = #{configKey}
+    </select>
+</mapper>

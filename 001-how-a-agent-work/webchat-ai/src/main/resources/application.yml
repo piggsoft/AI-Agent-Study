@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: webchat-ai
+  
+  datasource:
+    url: jdbc:mysql://192.168.198.3:3306/webchat?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    username: root
+    password: Password@2025
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  
+  # OpenAI 兼容配置 (NVIDIA Build)
+  ai:
+    openai:
+      api-key: ${NV_API_KEY}
+      base-url: https://integrate.api.nvidia.com
+      chat:
+        options:
+          model: meta/llama-3.3-70b-instruct
+          temperature: 0.7
+          topP: 0.8
+          maxTokens: 4096
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.piggsoft.webchat.entity
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  level:
+    com.piggsoft.webchat: DEBUG
+    # Spring AI 核心：Tool Call 执行过程、ToolCallingManager 日志
+    org.springframework.ai: DEBUG
+    # OpenAI Model 内部：tool call 循环、请求构建细节
+    org.springframework.ai.openai: DEBUG
+    # HTTP 请求体（可以看到发往 API 的完整 JSON，含 tools 定义）
+    org.springframework.http.client: DEBUG
+    org.springframework.web.reactive.function.client: TRACE

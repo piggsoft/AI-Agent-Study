@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 使用国内可访问的思源字体 CDN */
+@import url('https://cdn.staticfile.org/font-awesome/6.4.0/css/all.min.css');
+
+@layer base {
+    html {
+        font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-gray-50 text-gray-900;
+    }
+
+    .dark body {
+        @apply bg-gray-900 text-gray-100;
+    }
+}
+
+@layer components {
+    /* Custom scrollbar */
+    .scrollbar-thin::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-track {
+        @apply bg-transparent;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-thumb {
+        @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+    }
+
+    .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+        @apply bg-gray-400 dark:bg-gray-500;
+    }
+
+    /* Prose styling for message content */
+    .prose {
+        @apply text-base leading-relaxed;
+    }
+
+    .prose code {
+        @apply px-1.5 py-0.5 rounded bg-gray-200 dark:bg-gray-700 text-sm font-mono;
+    }
+
+    .prose pre {
+        @apply p-4 rounded-lg bg-gray-900 dark:bg-black overflow-x-auto my-3;
+    }
+
+    .prose pre code {
+        @apply bg-transparent p-0 text-gray-100;
+    }
+}
+
+@layer utilities {
+    /* Fade in animation */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fadeIn {
+        animation: fadeIn 0.3s ease-out forwards;
+    }
+
+    /* Pulse animation for typing indicator */
+    @keyframes typingPulse {
+        0%, 100% {
+            opacity: 0.4;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+
+    .animate-typing {
+        animation: typingPulse 1.4s ease-in-out infinite;
+    }
+
+    /* Gradient text */
+    .gradient-text {
+        @apply bg-clip-text text-transparent bg-gradient-to-r;
+    }
+
+    /* Glass effect */
+    .glass {
+        @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg;
+    }
+
+    /* Float animation */
+    @keyframes float {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-8px);
+        }
+    }
+
+    .animate-float {
+        animation: float 3s ease-in-out infinite;
+    }
+
+    /* Glow effect */
+    .glow {
+        box-shadow: 0 0 20px rgba(16, 185, 129, 0.3);
+    }
+
+    /* Message slide in */
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px) scale(0.98);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .animate-slideIn {
+        animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Shimmer loading effect */
+    @keyframes shimmer {
+        0% {
+            background-position: -200% 0;
+        }
+        100% {
+            background-position: 200% 0;
+        }
+    }
+
+    .animate-shimmer {
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        background-size: 200% 100%;
+        animation: shimmer 1.5s infinite;
+    }
+}
+
+/* Selection styling */
+::selection {
+    @apply bg-emerald-500/30 text-emerald-900 dark:text-emerald-100;
+}
+
+/* Focus outline */
+:focus-visible {
+    @apply outline-2 outline-offset-2 outline-emerald-500;
+}
+
+/* Disable text selection on interactive elements */
+button, a {
+    @apply select-none;
+}

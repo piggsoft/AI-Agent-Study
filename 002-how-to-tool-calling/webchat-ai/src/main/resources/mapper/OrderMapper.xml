@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.piggsoft.webchat.mapper.OrderMapper">
+    <select id="selectByDateRange" resultType="com.piggsoft.webchat.entity.Order">
+        SELECT id, order_no, customer, amount, status, created_at, updated_at
+        FROM orders
+        WHERE created_at BETWEEN #{startDate} AND #{endDate}
+        ORDER BY created_at DESC
+    </select>
+
+    <select id="selectAll" resultType="com.piggsoft.webchat.entity.Order">
+        SELECT id, order_no, customer, amount, status, created_at, updated_at
+        FROM orders
+        ORDER BY created_at DESC
+    </select>
+
+    <select id="query" resultType="com.piggsoft.webchat.entity.Order">
+        SELECT id, order_no, customer, amount, status, created_at, updated_at
+        FROM orders
+        <where>
+            <if test="customer != null and customer != ''">
+                and customer = #{customer}
+            </if>
+            <if test="orderNo != null and orderNo != ''">
+                and orderNo = #{orderNo}
+            </if>
+        </where>
+        ORDER BY created_at DESC
+    </select>
+</mapper>

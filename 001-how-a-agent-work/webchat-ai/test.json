@@ -1,0 +1,77 @@
+{
+  "result": {
+    "output": {
+      "messageType": "ASSISTANT",
+      "metadata": {
+        "role": "ASSISTANT",
+        "messageType": "ASSISTANT",
+        "refusal": "",
+        "finishReason": "STOP",
+        "index": 0,
+        "annotations": [],
+        "id": "202604261958406726dbd9d5ea4d51",
+        "reasoningContent": ""
+      },
+      "toolCalls": [],
+      "media": [],
+      "text": ""
+    },
+    "metadata": {
+      "finishReason": "STOP",
+      "contentFilters": [],
+      "empty": true
+    }
+  },
+  "metadata": {
+    "id": "202604261958406726dbd9d5ea4d51",
+    "model": "glm-4.5-air",
+    "rateLimit": {
+      "requestsRemaining": 0,
+      "tokensRemaining": 0,
+      "requestsLimit": 0,
+      "tokensReset": 0.0,
+      "requestsReset": 0.0,
+      "tokensLimit": 0
+    },
+    "usage": {
+      "promptTokens": 365,
+      "completionTokens": 328,
+      "totalTokens": 693,
+      "nativeUsage": {
+        "completion_tokens": 328,
+        "prompt_tokens": 365,
+        "total_tokens": 693,
+        "prompt_tokens_details": {
+          "cached_tokens": 43
+        }
+      }
+    },
+    "promptMetadata": [],
+    "empty": false
+  },
+  "results": [
+    {
+      "output": {
+        "messageType": "ASSISTANT",
+        "metadata": {
+          "role": "ASSISTANT",
+          "messageType": "ASSISTANT",
+          "refusal": "",
+          "finishReason": "STOP",
+          "index": 0,
+          "annotations": [],
+          "id": "202604261958406726dbd9d5ea4d51",
+          "reasoningContent": ""
+        },
+        "toolCalls": [],
+        "media": [],
+        "text": ""
+      },
+      "metadata": {
+        "finishReason": "STOP",
+        "contentFilters": [],
+        "empty": true
+      }
+    }
+  ]
+}

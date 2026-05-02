@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.piggsoft.webchat.mapper.ChatHistoryMapper">
+    <select id="selectBySessionId" resultType="com.piggsoft.webchat.entity.ChatHistory">
+        SELECT id, session_id, role, content, query_conditions, created_at
+        FROM chat_history
+        WHERE session_id = #{sessionId}
+        ORDER BY created_at ASC
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO chat_history (session_id, role, content, query_conditions, created_at)
+        VALUES (#{sessionId}, #{role}, #{content}, #{queryConditions}, NOW())
+    </insert>
+</mapper>
